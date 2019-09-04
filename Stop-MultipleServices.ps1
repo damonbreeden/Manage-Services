@@ -18,9 +18,9 @@
 
 [CmdletBinding()]
 param (
-    [string[]]$Servers = @('vagrant-10'),
+    [string[]]$Servers = @('navappx', 'navapp7', 'navapp9', 'navapp8', 'navapp6', 'navapp5', 'navapp4', 'navapp3', 'navapp2', 'navapp'),
 
-    [string[]]$Services = @('WlanSvc', 'XblAuthManager'),
+    [string[]]$Services = @('MicrosoftDynamicsNavServer$PROD', 'MicrosoftDynamicsNavServer$PROD_BOOMIWS', 'MicrosoftDynamicsNavServer$PROD_CUSTOMERWS', 'MicrosoftDynamicsNavServer$PROD_MobileNAV', 'MicrosoftDynamicsNavServer$PROD_NAS', 'MicrosoftDynamicsNavServer$PROD_O365', 'MicrosoftDynamicsNavServer$PROD_Public', 'MicrosoftDynamicsNavServer$PROD_WebClient', 'MicrosoftDynamicsNavServer$PROD_Admin', 'MicrosoftDynamicsNavServer$PROD_Admin_EXT'),
 
     [ValidateSet('Automatic', 'Boot', 'Disabled', 'Manual', 'System')]
     [string]$StartupType = "Disabled",
