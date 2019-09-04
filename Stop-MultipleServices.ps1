@@ -6,9 +6,9 @@
 .PARAMETER Services
     The services to work with. Requires an array e.g @("service1", "service2"). Commas go between service names, but not at the end. Get Service names by running "Get-Service" and checking the Name column. Names with special characters must be enclosed by single quotes.
 .PARAMETER StartupType
-    The startup type to set. Defaults to Automatic. Valid choices are 'Automatic', 'Boot', 'Disabled', 'Manual' or 'System'
+    The startup type to set. Defaults to Disabled. Valid choices are 'Automatic', 'Boot', 'Disabled', 'Manual' or 'System'
 .PARAMETER Status
-    The status to set the services to. Defaults to Running. Valid choices are 'Paused', 'Running' or 'Stopped'
+    The status to set the services to. Defaults to Stopped. Valid choices are 'Paused', 'Running' or 'Stopped'
 .EXAMPLE
     Stop-MultipleServices -Servers @("server1", "server2") -Services @("Service1","Service2") -Status Stopped -StartupType Disabled
 .NOTES
