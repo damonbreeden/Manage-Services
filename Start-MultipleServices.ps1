@@ -31,7 +31,8 @@ param (
 
 foreach ($s in $Servers) {
     foreach ($svc in $Services) {
-        Get-Service -ComputerName $s -Name $svc |
-        Set-Service -Status $status -StartupType $StartupType
+        $service = Get-Service -ComputerName $s -Name $svc
+        $service | Start-Service
+        $service | Set-Service  -StartupType $StartupType
     }
 }

@@ -31,7 +31,12 @@ param (
 
 foreach ($s in $Servers) {
     foreach ($svc in $Services) {
-        Get-Service -ComputerName $s -Name $svc |
-        Set-Service -Status $status -StartupType $StartupType
+        $service = Get-Service -ComputerName $s -Name $svc
+        $service | Stop-Service -Force
+        while ((Get-Service -ComputerName $s -Name $svc | Select-Object -ExpandProperty Status) -ne 'Stopped') {
+            Write-Host "Waiting for service $svc to stop on computer $s"
+            Start-Sleep -Seconds 10
+        }
+        $service | Set-Service -StartupType $StartupType
     }
 }
